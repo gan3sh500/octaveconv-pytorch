@@ -3,7 +3,10 @@ from functools import partial
 
 
 class OctConv(torch.nn.Module):
-    def __init__(self, in_channels, out_channels, kernel_size, stride, alpha):
+    """
+    This module implements the OctConv paper https://arxiv.org/pdf/1904.05049v1.pdf
+    """
+    def __init__(self, in_channels, out_channels, kernel_size, stride=1, alpha=0.5):
         super(OctConv, self).__init__()
         self.kernel_size = kernel_size
         self.L2L = torch.nn.Conv2d(int(alpha * in_channels), int(alpha * out_channels),
