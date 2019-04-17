@@ -23,5 +23,5 @@ class OctConv(torch.nn.Module):
 
     def forward(self, x):
         hf, lf = x
-        return self.H2H(hf) + self.upsample(self.L2H(lf)), self.L2L(lf) + self.avg_pool(hf)
+        return self.H2H(hf) + self.upsample(self.L2H(lf)), self.L2L(lf) + self.avg_pool(self.H2L(hf))
 
